@@ -1,6 +1,6 @@
 {
   "name": "mqtt-tempodb-bridge",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Simple bridge to stream MQTT Broker data to TempDB time series DB",
   "main": "index.js",
   "scripts": {
