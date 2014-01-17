@@ -1,0 +1,25 @@
+{
+  "name": "mqtt-tempodb-bridge",
+  "version": "0.0.1",
+  "description": "Simple bridge to stream MQTT Broker data to TempDB time series DB",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mchmarny/mqtt-tempodb-bridge.git"
+  },
+  "keywords": [
+    "mqtt",
+    "tempdb",
+    "iot",
+    "cloud"
+  ],
+  "author": "mchmarny <mark@chmarny.com> (http://mark.chmarny.com/)",
+  "license": "BSD 2-Clause",
+  "bugs": {
+    "url": "https://github.com/mchmarny/mqtt-tempodb-bridge/issues"
+  },
+  "homepage": "https://github.com/mchmarny/mqtt-tempodb-bridge"
+}
