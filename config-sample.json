@@ -23,19 +23,24 @@
 		{
 			"backend": "./backends/console-backend.js",
 			"config": {}
+		},
+
+		{
+			"backend": "./backends/tempodb-backend.js",
+			"config": {
+				"key": "",
+				"secret": "",
+				"args": {
+					"hostname": "", 
+					"port": 0,
+					"secure": true,
+					"version": "v1"
+				}
+			}
 		}
 
-	],
+	]
 
-	"tempo": {
-		"key": "",
-		"secret": "",
-		"args": {
-			"hostname": "", 
-			"port": 0,
-			"secure": true,
-			"version": "v1"
-		}
-	}
+
 
 }

@@ -1,16 +1,28 @@
-var TempoDBClient = require('tempodb').TempoDBClient;
+var TempoDbClient = require('tempodb').TempoDBClient;
 
-function TempoDBPBackend(config, logger){
+function TempoDbBackend(config, logger){
  	var me = this;
   	me.logger = logger;
   	me.config = config;
-	me.client = new TempoDBClient(conf.tempo.key, 
-		                           conf.tempo.secret,
-		                           conf.tempo.args);
+	me.client = new TempoDbClient(config.key, 
+		                           config.secret,
+		                           config.args);
 	me.handler = function(result){ 
 		logger.debug("%s:%j", result.response, result.body); 
 	}
 	logger.info("TempDB publisher created");
+};
+
+TempoDbBackend.prototype.subcribe = function(topic, message) {
+  var me = this;
+  me.logger.info("Parsing topic:%s message:%s ", topic, message);
+
+  // Increment topic message count by 1
+  me.count(topic);
+
+  //TODO: Parse message
+  //      Demo set and bulkSet
+
 };
 
 
@@ -22,7 +34,7 @@ function TempoDBPBackend(config, logger){
 	    { t: date, key: "1A2B3C4D5", v: 34.654 },
 	];
 */
-TempoDBPBackend.prototype.count = function(data) {
+TempoDbBackend.prototype.count = function(data) {
   	var me = this;
   	me.lgger.debug(data);
   	me.client.increment_multi(data, me.handler);
@@ -34,7 +46,7 @@ TempoDBPBackend.prototype.count = function(data) {
 	    { key: "your-custom-key", v: 1 },
 	]
 */
-TempoDBPBackend.prototype.set = function(data, at) {
+TempoDbBackend.prototype.set = function(data, at) {
   	var me = this;
   	var ts = at || new Date();
   	me.lgger.debug("%s:%j", ts, data);
@@ -42,7 +54,7 @@ TempoDBPBackend.prototype.set = function(data, at) {
 };
 
 exports.init = function(config, logger) {
-  return new TempoDBPBackend(config, logger);
+  return new TempoDbBackend(config, logger);
 }; 
 
 
