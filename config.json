@@ -1,0 +1,41 @@
+{
+	"log": {
+		"level": "debug",
+		"timestamp": true
+	},
+
+	"mqtt": {
+		"secure": true,
+		"topic": "",
+		"host": "",
+		"port": 8884,
+		"args": {
+			"clientId": "",
+			"key": "",
+			"crt": "",
+			"username": "",
+			"password": ""
+		}
+	},
+
+	"backends": [
+
+		{
+			"backend": "./backends/console-backend.js",
+			"config": {}
+		}
+
+	],
+
+	"tempo": {
+		"key": "",
+		"secret": "",
+		"args": {
+			"hostname": "", 
+			"port": 0,
+			"secure": true,
+			"version": "v1"
+		}
+	}
+
+}

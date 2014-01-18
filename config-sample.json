@@ -1,0 +1,19 @@
+{
+	"mqtt": {
+		"host": "",
+		"port": 8884,
+		"key": "",
+		"crt": "",
+		"username": "",
+		"password": ""
+	},
+
+	"tempo": {
+		"api_key": "",
+		"api-secret": "",
+		"hostname": "", 
+		"port": 0,
+		"secure": true,
+		"version": "v1"
+	}
+}
