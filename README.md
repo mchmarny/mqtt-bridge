@@ -1,4 +1,3 @@
-mqtt-tempodb-bridge
-===================
+# mqtt-bridge
 
-Simple bridge to stream MQTT Broker data to TempDB time series DB
+Simple bridge to stream MQTT Broker data to dynamically defined back-ends
