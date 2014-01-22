@@ -1,3 +1,9 @@
+/*
+	Requires tempodb 
+
+	npm install tempodb
+*/
+
 var TempoDbClient = require('tempodb').TempoDBClient;
 
 function TempoDbBackend(config, logger){
@@ -13,7 +19,7 @@ function TempoDbBackend(config, logger){
 	logger.info("TempDB publisher created");
 };
 
-TempoDbBackend.prototype.subcribe = function(topic, message) {
+TempoDbBackend.prototype.process = function(topic, message) {
   var me = this;
   me.logger.info("Parsing topic:%s message:%s ", topic, message);
 

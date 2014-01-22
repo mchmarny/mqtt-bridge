@@ -1,6 +1,6 @@
 # mqtt-bridge
 
-This fully configurable MQTT bridge subscribes to MQTT broker for defined topic and streams messages published to that topic to one or more backends. The backends implement a simple `subscribe` pattern and notified when new messages for the defined topic arrive. 
+This fully configurable MQTT bridge subscribes to MQTT broker for defined topic and streams messages published to that topic to dynamically defined backend. The backend implement a simple `subscribe` pattern and notified when new messages for the defined topic arrive. 
 
 Supported backends:
 

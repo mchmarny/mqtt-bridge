@@ -18,29 +18,15 @@
 		}
 	},
 
+
 	"backends": [
 
 		{
-			"backend": "./backends/console-backend.js",
+			"topic": "#",
+			"handler": "./backends/console-backend.js",
 			"config": {}
-		},
-
-		{
-			"backend": "./backends/tempodb-backend.js",
-			"config": {
-				"key": "",
-				"secret": "",
-				"args": {
-					"hostname": "", 
-					"port": 0,
-					"secure": true,
-					"version": "v1"
-				}
-			}
 		}
 
 	]
-
-
 
 }

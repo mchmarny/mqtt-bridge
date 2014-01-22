@@ -3,11 +3,12 @@ function ConsoleBackend(config, logger){
  	me.config = config;
   	me.logger = logger;
 	me.logger.info("Console publisher created");
-	me.subcribe = function(topic, message) {
-	  logger.debug("topic:%s message:%s ", topic, message);
-	  var doc = JSON.parse(message);
-	};
 
+};
+
+ConsoleBackend.prototype.process = function(topic, message) {
+  var me = this;
+  me.logger.debug("topic:%s message:%s ", topic, message);
 };
 
 exports.init = function(config, logger) {
