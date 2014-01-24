@@ -2,8 +2,8 @@ var utils = require('../lib/utils').init();
 
 var ConsoleBackend = function (config, events, logger){
 	var self = this;
-	this.config = config;
-	this.logger = logger;
+	self.config = config;
+	self.logger = logger;
 	events.on('data', function(topic, message){
 		self.process(topic, message);
 	});

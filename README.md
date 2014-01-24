@@ -5,7 +5,9 @@ This fully configurable MQTT bridge subscribes to MQTT broker for defined topic 
 Supported backends:
 
 * Console (default)
+* Redis
 * statsd
+* RethinkDB
 * TempoDB (alpha)
 * Graphite 
 

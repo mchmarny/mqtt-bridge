@@ -15,9 +15,9 @@ var utils = require('../lib/utils').init(),
 
 var RedisBackend = function (config, events, logger){
 	var self = this;
-	this.config = config;
-	this.logger = logger;
-	this.keyPrefix = config.config.prefix || "message";
+	self.config = config;
+	self.logger = logger;
+	self.keyPrefix = config.config.prefix || "message";
 
 	var host = config.config.host || "127.0.0.1";
 	var port = config.config.port || 6379;
@@ -28,7 +28,7 @@ var RedisBackend = function (config, events, logger){
         logger.error("Redis Error ", err);
    });
 
-	this.client = client;
+	self.client = client;
 
 	events.on('data', function(topic, data){
 		self.save(topic, data);
@@ -41,7 +41,7 @@ RedisBackend.prototype.save = function(topic, data) {
 	if (!topic || !data) return;
 	var self = this;
 	var cleanTopic = utils.replaceAll("/", "-", topic);
-	var key = this.keyPrefix + ":" + cleanTopic + ":" + (new Date).getTime(); 
+	var key = self.keyPrefix + ":" + cleanTopic + ":" + (new Date).getTime(); 
 	self.logger.debug("[%s] %s > %s", self.config.index, cleanTopic, data);
 	self.client.set(key, data.toString(), redis.print);
 };
