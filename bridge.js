@@ -65,9 +65,11 @@ if (config.backends) {
    process.exit(1);
 };
 
-process.on('uncaughtException', function(err) {
-  logger.error('Uncaught Exception:', err);
+process.on("uncaughtException", function(err) {
+  logger.error("UncaughtException:", err.message);
+  logger.error(err.stack)
   flushBackends();
+  process.exit(1)
 });
 
 process.on('exit', function () {

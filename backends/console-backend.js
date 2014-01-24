@@ -1,4 +1,4 @@
-var util = require('util');
+var utils = require('../lib/utils').init();
 
 var ConsoleBackend = function (config, events, logger){
 	var self = this;
@@ -15,7 +15,8 @@ var ConsoleBackend = function (config, events, logger){
 
 ConsoleBackend.prototype.process = function(topic, message) {
 	var self = this;
-	self.logger.debug("[%s] %s > %s", self.config.index, topic, message);
+	var cleanTopic = utils.replaceAll("/", ":", topic);
+	self.logger.debug("[%s] %s > %s", self.config.index, cleanTopic, message);
 };
 
 ConsoleBackend.prototype.flush = function(callback) {
