@@ -1,6 +1,6 @@
 # mqtt-bridge
 
-This fully configurable MQTT bridge subscribes to MQTT broker for defined topic and streams messages published to that topic to dynamically defined backend. The backend implement a simple `subscribe` pattern and notified when new messages for the defined topic arrive. 
+This fully configurable MQTT bridge subscribes to MQTT broker for defined topic and streams messages published to that topic to dynamically defined backends. The configured backends subscribe to simple `data` and `flush` events which give them access to the message `topic` and `content` whenever new messages for the defined topic arrive. 
 
 Supported backends:
 
@@ -36,13 +36,15 @@ If your broker does not require secure client, simply switch the `secure` and re
 
 ### Backends
 
-For each backend, you must define two arguments: `backend` with the implementation file (probably located in the backends directory) and the `config` arguments for that backend. These will be anything the backend requires.
+For each backend, you must define two arguments: `handler` with the implementation file (probably located in the backends directory) and the `config` arguments for that backend. These will be anything the backend requires.
 
     "backends": [
     
     	{
-    		"backend": "./backends/console-backend.js",
-    		"config": {}
+			"handler": "./backends/some-backend.js",
+			"config": {
+				"arg": "val"
+			}
     	}
     
     ]

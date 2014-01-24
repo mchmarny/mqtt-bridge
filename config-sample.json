@@ -5,28 +5,37 @@
 	},
 
 	"mqtt": {
+		"topic": "#",
 		"secure": true,
-		"topic": "",
-		"host": "",
+		"topic": "#",
+		"host": "mqtt.mydomain.com",
 		"port": 8884,
 		"args": {
-			"clientId": "",
-			"key": "",
-			"crt": "",
-			"username": "",
-			"password": ""
+			"clientId": "mqtt-bridge",
+			"keyPath": "./certs/client.key",
+			"certPath": "./certs/client.crt",
+			"username": "sampleuser",
+			"password": "samplepassword",
+			"keepalive": 59000
 		}
 	},
 
-
 	"backends": [
-
+		
 		{
-			"topic": "#",
 			"handler": "./backends/console-backend.js",
-			"config": {}
+			"config": {
+				"val1": 1
+			}
+		},
+		
+		{
+			"handler": "./backends/console-backend.js",
+			"config": {
+				"val2": 2
+			}
 		}
-
+		
 	]
 
 }

@@ -1,6 +1,6 @@
-var events = require('events'),
-	 mqtt = require('mqtt'),
-    backendEvents = new events.EventEmitter(),
+var mqtt = require('mqtt'),
+	 events = require('events'),
+	 backendEvents = new events.EventEmitter(),
 	 config = require("./config"),
     logger = require("./lib/logger").init(config);
 
