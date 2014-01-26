@@ -23,9 +23,14 @@
 	"backends": [
 		
 		{
-			"handler": "./backends/console-backend.js",
+			"handler": "./backends/rethinkdb-backend.js",
 			"config": {
-				"val1": 1
+				"conn": {
+					"host": "127.0.0.1",
+					"port": 28015,
+					"db": "mqtt",
+					"table": "messages"
+				}
 			}
 		},
 		

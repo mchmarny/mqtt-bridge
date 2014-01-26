@@ -10,10 +10,12 @@
 
 		"handler": "./backends/rethinkdb-backend.js",
 		"config": {
-			"host": "127.0.0.1",
-			"port": 28015,
-			"db": "mqtt",
-			"table": "messages"
+			"conn": {
+				"host": "127.0.0.1",
+				"port": 28015,
+				"db": "mqtt",
+				"table": "messages"
+			}
 		}
 		
 */
