@@ -1,6 +1,6 @@
 {
   "name": "mqtt-bridge",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Simple bridge to stream MQTT Broker data to dynamically defined back-ends",
   "main": "index.js",
   "dependencies": {
