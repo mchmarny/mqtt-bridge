@@ -79,6 +79,7 @@ Optionally reqieres JSONPath if jsonpath config is used
 				"feed": "YOUR_FEED_ID_HERE",  
 				"apikey": "YOUR_FEED_KEY_HERE",
 				"jsonpath": "$.value'
+
 			}
 		}
 		
