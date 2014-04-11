@@ -9,7 +9,8 @@ Supported backends:
 * statsd
 * RethinkDB
 * TempoDB (alpha)
-* Graphite 
+* Graphite
+* Xively 
 
 > New backends will be added, if you don't see what you need, contribute. 
 
@@ -52,6 +53,36 @@ For each backend, you must define two arguments: `handler` with the implementati
     ]
     
 > Remember, some backends require additional installation before the initial run.
+
+#### Xively Backend
+
+Posts all mqtt messages to Xively feed, automatically creates datastreams for all mqtt topics processed.
+Transforms mqtt topic to Xively datastream name.
+Optionally transforms mqtt message to datastream value using JSONPath - to be used if messages are JSON data.
+
+Requires node-rest-client
+
+    $ npm install node-rest-client
+
+Optionally reqieres JSONPath if jsonpath config is used
+
+    $ npm install JSONPath
+
+
+##### Configuration
+
+	"backends": [
+	
+		{
+			"handler": "./backends/xively-backend.js",
+			"config": {
+				"feed": "YOUR_FEED_ID_HERE",  
+				"apikey": "YOUR_FEED_KEY_HERE",
+				"jsonpath": "$.value'
+			}
+		}
+		
+	]
 
 ### Logging
 
