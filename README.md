@@ -79,10 +79,13 @@ Optionally reqieres JSONPath if jsonpath config is used
 				"feed": "YOUR_FEED_ID_HERE",  
 				"apikey": "YOUR_FEED_KEY_HERE",
 				"jsonpath": "$.value'
+
 			}
 		}
 		
 	]
+
+The jsonpath config assumes the mqtt messages are json data such as {"value":3,"unit": "Celsius"} and you want to post to xively only its value. If message is plain text, jsonpath config has to be ommited.
 
 ### Logging
 
