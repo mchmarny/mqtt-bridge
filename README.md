@@ -10,6 +10,7 @@ Supported backends:
 * RethinkDB
 * TempoDB (alpha)
 * Graphite 
+* AWS Kinesis 
 
 > New backends will be added, if you don't see what you need, contribute. 
 
@@ -35,6 +36,8 @@ If your broker does not require secure client, simply switch the `secure` and re
 			"keepalive": 59000
 		}
 	}
+
+> The small `keepalive` is to workaround for AWS ELB timeouts. Feel free to increase that number if you are not load-balancing the MQTT broker.
 
 ### Backends
 
@@ -65,7 +68,7 @@ To change the verbosity of console logging, you can alter the `level` argument. 
 
 ## Installation
 
-    $ npm install mqtt-mqtt-bridge
+    $ npm install mqtt-bridge
     
 ## Standalone Usage
 
