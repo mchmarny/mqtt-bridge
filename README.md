@@ -11,6 +11,8 @@ Supported backends:
 * TempoDB (alpha)
 * Graphite 
 * AWS Kinesis 
+* Graphite
+* Xively 
 
 > New backends will be added, if you don't see what you need, contribute. 
 

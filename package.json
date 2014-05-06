@@ -17,7 +17,8 @@
   "keywords": [
     "mqtt",
     "iot",
-    "cloud"
+    "cloud",
+    "xively"
   ],
   "author": "mchmarny <mark@chmarny.com> (http://mark.chmarny.com/)",
   "license": "BSD 2-Clause",

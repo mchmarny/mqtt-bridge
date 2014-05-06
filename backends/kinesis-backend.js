@@ -18,8 +18,8 @@ var KinesisBackend = function (config, events, logger){
 	self.logger = logger;
 
 	// configure
-	AWS.config.region = config.aws.region;
-	AWS.config.apiVersions = config.aws.kinesis;
+	AWS.config.region = config.config.region;
+	AWS.config.apiVersions = config.config.apiVersion;
 
 	// stream
 	var kinesis = new AWS.Kinesis();
@@ -36,12 +36,12 @@ var KinesisBackend = function (config, events, logger){
 KinesisBackend.prototype.process = function(topic, message) {
 	var self = this;
 	var cleanTopic = utils.replaceAll("/", ":", topic);
-	self.logger.debug("[%s] %s > %s", self.config.index, cleanTopic, message);
+	self.logger.debug("[%s] %s", cleanTopic, message);
 
 	var putArgs = {
-	  Data: toBase64EncodedString(obj),
-	  PartitionKey: key,
-	  StreamName: config.aws.stream
+	  Data: utils.toBase64EncodedString(obj),
+	  PartitionKey: cleanTopic,
+	  StreamName: config.config.stream
 	};
 	kinesis.putRecord(putArgs, function(err, data) {
 	  if (err) console.log(err, err.stack);
@@ -63,8 +63,8 @@ exports.init = function(config, events, logger) {
 
 
 /*
-
-var stateArgs = { StreamName: config.aws.stream };
+@TODO: Implement stream status check
+var stateArgs = { StreamName: config.config.stream };
 kinesis.describeStream(stateArgs, function (err, data) {
   if (err) console.log(err, err.stack);
   else {
@@ -76,11 +76,6 @@ kinesis.describeStream(stateArgs, function (err, data) {
   	}
   	var status = data.StreamDescription.StreamStatus;
   	console.log('STATUS: ' + status);
-
-  	// mock data
-  	mockData();
-
   }
 });
-
 */
