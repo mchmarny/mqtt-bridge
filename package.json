@@ -18,7 +18,13 @@
     "mqtt",
     "iot",
     "cloud",
-    "xively"
+    "xively",
+    "redis",
+    "rethinkdb",
+    "tempodb",
+    "graphite",
+    "aws",
+    "kinesis"
   ],
   "author": "mchmarny <mark@chmarny.com> (http://mark.chmarny.com/)",
   "license": "BSD 2-Clause",
